@@ -653,6 +653,8 @@ select:focus {
 }
 
 .reason-row {
+  width: min(100% - 2rem, 1560px);
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
   gap: 0;
