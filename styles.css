@@ -241,7 +241,7 @@ select {
 }
 
 .split-section {
-  width: min(100% - 2rem, var(--max));
+  width: min(100% - 2rem, 1560px);
   margin: clamp(2rem, 5vw, 4rem) auto;
 }
 
