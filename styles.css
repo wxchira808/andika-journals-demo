@@ -240,7 +240,13 @@ select {
   background: var(--soft);
 }
 
-.split-hero.dark {
+.split-section {
+  width: min(100% - 2rem, var(--max));
+  margin: clamp(2rem, 5vw, 4rem) auto;
+}
+
+.split-hero.dark,
+.split-section.dark {
   background: var(--ink);
   color: var(--paper);
 }
