@@ -1,0 +1,1125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Andika Journals | Journals for Every Story</title>
+  <meta name="description" content="Minimal modern journals for reflection, planning, growth, and everyday writing.">
+  <style>
+    :root {
+      --ink: #111111;
+      --muted: #68645f;
+      --line: #ded9d2;
+      --paper: #ffffff;
+      --soft: #f6f3ef;
+      --accent: #b8875b;
+      --accent-dark: #8c6544;
+      --max: 1160px;
+      --radius: 8px;
+      --shadow: 0 18px 44px rgba(17, 17, 17, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+      letter-spacing: 0;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    .announcement {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 0.65rem 1rem;
+      text-align: center;
+      font-size: 0.82rem;
+      letter-spacing: 0.02em;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav {
+      width: min(100% - 2rem, var(--max));
+      margin: 0 auto;
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .brand {
+      font-size: 1.02rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 1.4rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 650;
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+    }
+
+    .btn {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      border: 1px solid var(--ink);
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: var(--paper);
+      padding: 0.85rem 1.15rem;
+      cursor: pointer;
+      font-weight: 750;
+      line-height: 1;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      background: var(--accent-dark);
+      border-color: var(--accent-dark);
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--line);
+    }
+
+    .btn.secondary:hover {
+      color: var(--paper);
+      border-color: var(--ink);
+      background: var(--ink);
+    }
+
+    .section {
+      padding: 4.5rem 0;
+    }
+
+    .container {
+      width: min(100% - 2rem, var(--max));
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 2rem 0 4.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 0.85rem;
+      color: var(--accent-dark);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 12ch;
+      margin-bottom: 1.1rem;
+      font-size: clamp(3rem, 8vw, 6.9rem);
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      max-width: 13ch;
+      margin-bottom: 1rem;
+      font-size: clamp(2rem, 4.5vw, 4.4rem);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin-bottom: 0.55rem;
+      font-size: 1.18rem;
+      line-height: 1.18;
+    }
+
+    .lead {
+      max-width: 36rem;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.28rem);
+    }
+
+    .hero-actions,
+    .section-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-top: 1.6rem;
+    }
+
+    .hero-media {
+      min-height: 410px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: var(--soft);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-media img {
+      height: 100%;
+      min-height: 410px;
+    }
+
+    .proof-strip {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--soft);
+    }
+
+    .proof-grid {
+      display: grid;
+      gap: 0;
+    }
+
+    .proof-item {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .proof-item:last-child {
+      border-bottom: 0;
+    }
+
+    .proof-item strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      font-size: 0.95rem;
+    }
+
+    .proof-item span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .split {
+      display: grid;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .split.reverse .split-media {
+      order: -1;
+    }
+
+    .split-media {
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: var(--soft);
+    }
+
+    .split-media img {
+      min-height: 380px;
+    }
+
+    .body-copy {
+      max-width: 38rem;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .body-copy p {
+      margin-bottom: 1rem;
+    }
+
+    .soft-band {
+      background: var(--soft);
+    }
+
+    .section-head {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-head h2 {
+      margin-bottom: 0;
+    }
+
+    .carousel-shell {
+      position: relative;
+    }
+
+    .carousel-window {
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 360ms ease;
+      will-change: transform;
+    }
+
+    .product-card {
+      flex: 0 0 100%;
+      padding-right: 1rem;
+    }
+
+    .product-inner {
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+    }
+
+    .product-inner img {
+      aspect-ratio: 4 / 5;
+    }
+
+    .product-info {
+      padding: 1.25rem;
+    }
+
+    .product-info p {
+      min-height: 3rem;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .product-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 1.2rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .icon-button {
+      width: 46px;
+      height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--paper);
+      color: var(--ink);
+      cursor: pointer;
+      transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+    }
+
+    .icon-button:hover {
+      background: var(--ink);
+      color: var(--paper);
+      border-color: var(--ink);
+    }
+
+    .dots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border: 0;
+      border-radius: 999px;
+      background: #c9c2b9;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .dot.active {
+      width: 28px;
+      background: var(--ink);
+    }
+
+    .benefit-grid,
+    .testimonial-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .benefit,
+    .quote-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      padding: 1.35rem;
+    }
+
+    .benefit svg {
+      width: 38px;
+      height: 38px;
+      margin-bottom: 1.25rem;
+      color: var(--accent-dark);
+    }
+
+    .benefit p,
+    .quote-card p {
+      color: var(--muted);
+    }
+
+    .quote-card p {
+      font-size: 1.04rem;
+    }
+
+    .quote-card span {
+      color: var(--ink);
+      font-weight: 750;
+    }
+
+    .order-wrap {
+      display: grid;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .order-note,
+    .payment-panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      padding: 1.25rem;
+    }
+
+    .order-note {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .order-note p {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    label {
+      display: grid;
+      gap: 0.45rem;
+      color: var(--ink);
+      font-size: 0.9rem;
+      font-weight: 750;
+    }
+
+    input,
+    select {
+      width: 100%;
+      min-height: 50px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--ink);
+      padding: 0.85rem 0.95rem;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: var(--ink);
+      box-shadow: 0 0 0 3px rgba(184, 135, 91, 0.18);
+    }
+
+    .payment-panel {
+      display: none;
+      margin-top: 1rem;
+    }
+
+    .payment-panel.show {
+      display: block;
+    }
+
+    .payment-panel ul {
+      margin: 0.9rem 0 0;
+      padding-left: 1.1rem;
+      color: var(--muted);
+    }
+
+    .status {
+      min-height: 1.4rem;
+      color: var(--accent-dark);
+      font-weight: 750;
+    }
+
+    .question-band {
+      text-align: center;
+    }
+
+    .question-band h2 {
+      max-width: none;
+      margin-inline: auto;
+    }
+
+    .footer {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 3rem 0 1.5rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .footer p,
+    .footer a {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .footer h3 {
+      color: var(--paper);
+      font-size: 0.98rem;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 0.55rem;
+    }
+
+    .signup {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      margin-top: 1rem;
+    }
+
+    .signup input {
+      border-color: rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--paper);
+    }
+
+    .signup input::placeholder {
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .copyright {
+      margin-top: 2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 0.88rem;
+    }
+
+    .mobile-order {
+      display: inline-flex;
+    }
+
+    @media (min-width: 700px) {
+      .nav-links {
+        display: flex;
+      }
+
+      .mobile-order {
+        display: none;
+      }
+
+      .proof-grid,
+      .benefit-grid,
+      .testimonial-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .testimonial-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .proof-item {
+        padding: 1.35rem 1.25rem;
+        border-right: 1px solid var(--line);
+        border-bottom: 0;
+      }
+
+      .proof-item:first-child {
+        padding-left: 0;
+      }
+
+      .proof-item:last-child {
+        border-right: 0;
+      }
+
+      .product-card {
+        flex-basis: 50%;
+      }
+
+      .section-head {
+        flex-direction: row;
+        align-items: end;
+        justify-content: space-between;
+      }
+
+      .form-grid,
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .signup {
+        flex-direction: row;
+      }
+    }
+
+    @media (min-width: 960px) {
+      .hero {
+        padding-top: 3rem;
+      }
+
+      .hero-grid,
+      .split,
+      .order-wrap {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .split.reverse .split-media {
+        order: 0;
+      }
+
+      .product-card {
+        flex-basis: 25%;
+      }
+
+      .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr 1.3fr;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .nav {
+        min-height: 64px;
+      }
+
+      .brand {
+        font-size: 0.9rem;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .nav .btn {
+        width: auto;
+      }
+
+      .hero-media,
+      .hero-media img {
+        min-height: 340px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="announcement">Launch orders open soon. Manual M-Pesa and bank payment supported.</div>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="#top">Andika Journals</a>
+      <div class="nav-links">
+        <a href="#story">Story</a>
+        <a href="#products">Products</a>
+        <a href="#order">Order</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="btn mobile-order" href="#order">Shop Now</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Minimal journals for modern life</p>
+          <h1>Andika Journals &mdash; Journals for Every Story</h1>
+          <p class="lead">Beautifully simple journals for reflection, planning, growth, and the everyday thoughts worth keeping.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#order">Shop Now</a>
+            <a class="btn secondary" href="#products">View Collection</a>
+          </div>
+        </div>
+        <div class="hero-media" aria-label="Stack of minimalist journals on a desk">
+          <img src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=1400&q=85" alt="Minimal journal and pen on a clean desk">
+        </div>
+      </div>
+    </section>
+
+    <section class="proof-strip" aria-label="Brand highlights">
+      <div class="container proof-grid">
+        <div class="proof-item">
+          <strong>Clean design</strong>
+          <span>Quiet covers, useful pages, no clutter.</span>
+        </div>
+        <div class="proof-item">
+          <strong>Daily writing</strong>
+          <span>Made for planning, prayer, notes, and reflection.</span>
+        </div>
+        <div class="proof-item">
+          <strong>Simple ordering</strong>
+          <span>Choose a journal, submit details, pay manually.</span>
+        </div>
+        <div class="proof-item">
+          <strong>Personal delivery</strong>
+          <span>Confirmation and delivery details by phone.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="story">
+      <div class="container split">
+        <div class="split-media">
+          <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1300&q=85" alt="Open journal with handwritten notes">
+        </div>
+        <div>
+          <p class="eyebrow">Why journaling matters</p>
+          <h2>Give your thoughts somewhere to land.</h2>
+          <div class="body-copy">
+            <p>A journal creates space between what happens and how you respond. It helps you slow down, remember clearly, plan honestly, and notice how you are growing.</p>
+            <p>Andika Journals are designed to make that habit feel natural: calm pages, useful prompts, and enough room for every kind of story.</p>
+          </div>
+          <div class="section-actions">
+            <a class="btn secondary" href="#products">Explore journals</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft-band">
+      <div class="container split reverse">
+        <div>
+          <p class="eyebrow">From the founder</p>
+          <h2>Built for people who still believe in paper.</h2>
+          <div class="body-copy">
+            <p>Andika Journals began with a simple belief: writing things down changes how we carry them. The brand is for students, parents, professionals, children, creatives, and anyone building a more intentional life.</p>
+            <p>This founder section can later include her real story, photo, mission, and the reason each product line exists.</p>
+          </div>
+        </div>
+        <div class="split-media">
+          <img src="https://images.unsplash.com/photo-1499557354967-2b2d8910bcca?auto=format&fit=crop&w=1300&q=85" alt="Founder writing in a journal at a table">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="products">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">The collection</p>
+            <h2>One brand, many stories.</h2>
+          </div>
+          <div class="carousel-controls" aria-label="Product carousel controls">
+            <button class="icon-button" type="button" data-carousel-prev aria-label="Previous product">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="icon-button" type="button" data-carousel-next aria-label="Next product">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="carousel-shell">
+          <div class="carousel-window">
+            <div class="carousel-track" data-carousel-track>
+              <article class="product-card">
+                <div class="product-inner">
+                  <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=85" alt="Men's journal on a desk">
+                  <div class="product-info">
+                    <h3>Men's Journals</h3>
+                    <p>Structured pages for focus, discipline, reflection, and personal growth.</p>
+                    <div class="product-meta">
+                      <span>From KES 1,500</span>
+                      <a href="#order">Order</a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <article class="product-card">
+                <div class="product-inner">
+                  <img src="https://images.unsplash.com/photo-1512316609839-ce289d3eba0a?auto=format&fit=crop&w=900&q=85" alt="Women's journal with flowers and pen">
+                  <div class="product-info">
+                    <h3>Women's Journals</h3>
+                    <p>Elegant journals for dreams, prayer, gratitude, ideas, and everyday plans.</p>
+                    <div class="product-meta">
+                      <span>From KES 1,500</span>
+                      <a href="#order">Order</a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <article class="product-card">
+                <div class="product-inner">
+                  <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=85" alt="Kids writing in notebooks">
+                  <div class="product-info">
+                    <h3>Kids Journals</h3>
+                    <p>Bright, friendly pages that help children write, draw, reflect, and imagine.</p>
+                    <div class="product-meta">
+                      <span>From KES 1,200</span>
+                      <a href="#order">Order</a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <article class="product-card">
+                <div class="product-inner">
+                  <img src="https://images.unsplash.com/photo-1517971129774-8a2b38fa128e?auto=format&fit=crop&w=900&q=85" alt="Minimal notebook and pen">
+                  <div class="product-info">
+                    <h3>Notebooks</h3>
+                    <p>Simple everyday notebooks for class, work, meetings, sketches, and lists.</p>
+                    <div class="product-meta">
+                      <span>From KES 900</span>
+                      <a href="#order">Order</a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="carousel-controls">
+            <div class="dots" data-carousel-dots aria-label="Product slide dots"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft-band">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">How it works</p>
+            <h2>Small pages. Real movement.</h2>
+          </div>
+        </div>
+        <div class="benefit-grid">
+          <article class="benefit">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20h16M6 16l10.5-10.5 2 2L8 18H6v-2z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <h3>Write</h3>
+            <p>Put the day, the idea, or the feeling into words.</p>
+          </article>
+          <article class="benefit">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14M7 7l10 10M17 7L7 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <h3>Reflect</h3>
+            <p>Notice patterns, choices, gratitude, and next steps.</p>
+          </article>
+          <article class="benefit">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 19c7 0 13-6 13-13M4 13c4 0 7-3 7-7M17 6h3v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <h3>Grow</h3>
+            <p>Return to your words and see progress over time.</p>
+          </article>
+          <article class="benefit">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 12h8M12 8v8M5 4h14v12H8l-3 3V4z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <h3>Share</h3>
+            <p>Gift a journal, pass on wisdom, or start a writing habit together.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Testimonials</p>
+            <h2>Words from early customers.</h2>
+          </div>
+        </div>
+        <div class="testimonial-grid">
+          <article class="quote-card">
+            <p>"The pages feel calm and intentional. It made journaling easier to keep up with."</p>
+            <span>Customer name</span>
+          </article>
+          <article class="quote-card">
+            <p>"I bought one as a gift and ended up ordering another for myself."</p>
+            <span>Customer name</span>
+          </article>
+          <article class="quote-card">
+            <p>"Simple, beautiful, and useful. Exactly what I wanted in a daily journal."</p>
+            <span>Customer name</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft-band" id="order">
+      <div class="container order-wrap">
+        <div class="order-note">
+          <p class="eyebrow">Manual payment</p>
+          <h2>Place your order.</h2>
+          <p>Submit your details, then follow the payment instructions. Once payment is confirmed, Andika Journals will contact you shortly with delivery details.</p>
+        </div>
+
+        <div>
+          <form id="orderForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <input type="hidden" name="_subject" value="New Andika Journals order">
+            <div class="form-grid">
+              <label>
+                Name
+                <input type="text" name="name" autocomplete="name" required>
+              </label>
+              <label>
+                Email
+                <input type="email" name="email" autocomplete="email" required>
+              </label>
+              <label>
+                Phone
+                <input type="tel" name="phone" autocomplete="tel" required>
+              </label>
+              <label>
+                Journal type
+                <select name="journal_type" required>
+                  <option value="">Select a journal</option>
+                  <option>Men's Journals</option>
+                  <option>Women's Journals</option>
+                  <option>Kids Journals</option>
+                  <option>Notebooks</option>
+                </select>
+              </label>
+              <label>
+                Quantity
+                <input type="number" name="quantity" min="1" max="50" value="1" required>
+              </label>
+              <label>
+                Preferred contact
+                <select name="preferred_contact" required>
+                  <option>WhatsApp</option>
+                  <option>Phone call</option>
+                  <option>Email</option>
+                </select>
+              </label>
+            </div>
+            <button class="btn" type="submit">Submit Order</button>
+            <p class="status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+
+          <div class="payment-panel" id="paymentPanel" aria-live="polite">
+            <h3>Payment instructions</h3>
+            <p>Thank you for your order. Payment instructions are below. Once we confirm payment, we'll contact you shortly with delivery details.</p>
+            <ul>
+              <li>M-Pesa Paybill: <strong>123456</strong></li>
+              <li>Account name: <strong>ANDIKA JOURNALS</strong></li>
+              <li>Bank: <strong>Andika Journals Ltd, Account 0000000000</strong></li>
+              <li>Send payment confirmation to: <strong>+254 XXX XXX XXX</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section question-band" id="contact">
+      <div class="container">
+        <p class="eyebrow">Need help?</p>
+        <h2>Any questions?</h2>
+        <p class="lead" style="margin-inline:auto;">Talk to us before ordering, after ordering, or when choosing the right journal.</p>
+        <div class="hero-actions" style="justify-content:center;">
+          <a class="btn" href="https://wa.me/254XXXXXXXXX?text=Hi%20I%20have%20a%20question%20about%20my%20order" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>Andika Journals</h3>
+          <p>Minimal journals for every story, season, thought, and plan.</p>
+        </div>
+        <div>
+          <h3>Shop</h3>
+          <div class="footer-links">
+            <a href="#products">Men's Journals</a>
+            <a href="#products">Women's Journals</a>
+            <a href="#products">Kids Journals</a>
+            <a href="#products">Notebooks</a>
+          </div>
+        </div>
+        <div>
+          <h3>Help</h3>
+          <div class="footer-links">
+            <a href="#order">Order</a>
+            <a href="#contact">WhatsApp</a>
+            <a href="mailto:hello@andikajournals.com">Email</a>
+          </div>
+        </div>
+        <div>
+          <h3>Stay in the loop</h3>
+          <p>Get launch updates and new collection notes.</p>
+          <form class="signup" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <input type="email" name="email" placeholder="Email address" aria-label="Email address" required>
+            <button class="btn" type="submit">Join</button>
+          </form>
+        </div>
+      </div>
+      <div class="copyright">&copy; <span id="year"></span> Andika Journals. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    const track = document.querySelector("[data-carousel-track]");
+    const cards = Array.from(document.querySelectorAll(".product-card"));
+    const prev = document.querySelector("[data-carousel-prev]");
+    const next = document.querySelector("[data-carousel-next]");
+    const dotsWrap = document.querySelector("[data-carousel-dots]");
+    let index = 0;
+
+    function visibleCount() {
+      if (window.innerWidth >= 960) return 4;
+      if (window.innerWidth >= 700) return 2;
+      return 1;
+    }
+
+    function maxIndex() {
+      return Math.max(cards.length - visibleCount(), 0);
+    }
+
+    function renderDots() {
+      dotsWrap.innerHTML = "";
+      const total = maxIndex() + 1;
+      for (let i = 0; i < total; i += 1) {
+        const dot = document.createElement("button");
+        dot.className = "dot" + (i === index ? " active" : "");
+        dot.type = "button";
+        dot.setAttribute("aria-label", "Go to product slide " + (i + 1));
+        dot.addEventListener("click", () => {
+          index = i;
+          updateCarousel();
+        });
+        dotsWrap.appendChild(dot);
+      }
+    }
+
+    function updateCarousel() {
+      index = Math.min(index, maxIndex());
+      const cardWidth = cards[0].getBoundingClientRect().width;
+      track.style.transform = "translateX(" + (-index * cardWidth) + "px)";
+      renderDots();
+    }
+
+    prev.addEventListener("click", () => {
+      index = index <= 0 ? maxIndex() : index - 1;
+      updateCarousel();
+    });
+
+    next.addEventListener("click", () => {
+      index = index >= maxIndex() ? 0 : index + 1;
+      updateCarousel();
+    });
+
+    window.addEventListener("resize", updateCarousel);
+    updateCarousel();
+
+    const orderForm = document.getElementById("orderForm");
+    const paymentPanel = document.getElementById("paymentPanel");
+    const formStatus = document.getElementById("formStatus");
+
+    orderForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      if (!orderForm.checkValidity()) {
+        orderForm.reportValidity();
+        return;
+      }
+
+      const formData = new FormData(orderForm);
+      const endpoint = orderForm.getAttribute("action");
+      const isDemoEndpoint = endpoint.includes("YOUR_FORM_ID");
+
+      formStatus.textContent = "Submitting your order...";
+
+      try {
+        if (!isDemoEndpoint) {
+          const response = await fetch(endpoint, {
+            method: "POST",
+            body: formData,
+            headers: { "Accept": "application/json" }
+          });
+
+          if (!response.ok) {
+            throw new Error("Form submission failed");
+          }
+        }
+
+        paymentPanel.classList.add("show");
+        formStatus.textContent = "Your order has been received. Payment instructions are above. We'll contact you via WhatsApp or phone once we confirm payment.";
+        orderForm.reset();
+        paymentPanel.scrollIntoView({ behavior: "smooth", block: "center" });
+      } catch (error) {
+        paymentPanel.classList.add("show");
+        formStatus.textContent = "Your order details are ready. Please use the payment instructions above, then contact us on WhatsApp to confirm.";
+      }
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
