@@ -793,40 +793,9 @@ select:focus {
   line-height: 1.55;
 }
 
-.founder-letter-disclosure {
+.founder-letter-visible {
+  padding: clamp(2.5rem, 5vw, 4rem) 0 0;
   border-top: 1px solid var(--ink);
-  border-bottom: 1px solid var(--ink);
-}
-
-.founder-letter-disclosure summary {
-  min-height: 72px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  cursor: pointer;
-  font-size: 0.86rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  list-style: none;
-  text-transform: uppercase;
-}
-
-.founder-letter-disclosure summary::-webkit-details-marker {
-  display: none;
-}
-
-.founder-letter-disclosure summary span {
-  font-size: 1.5rem;
-  transition: transform 180ms ease;
-}
-
-.founder-letter-disclosure[open] summary span {
-  transform: rotate(45deg);
-}
-
-.founder-letter-disclosure .founder-letter {
-  padding: clamp(1rem, 4vw, 3rem) 0 clamp(2rem, 5vw, 4rem);
 }
 
 .reason-list {
