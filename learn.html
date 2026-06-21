@@ -15,14 +15,14 @@
       <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-menu-toggle><span></span></button>
       <a class="brand" href="index.html">Andika Journals</a>
       <nav class="nav-links" aria-label="Primary navigation">
-        <a href="shop.html#order">Buy Now</a>
+        <a href="shop.html">Buy Now</a>
         <a href="shop.html#collection">Shop All</a>
         <a href="learn.html">Learn More</a>
       </nav>
-      <a class="header-action" href="shop.html#order"><span>Cart</span><span class="bag">0</span></a>
+      <a class="header-action" href="cart.html"><span>Cart</span><span class="bag" data-cart-count>0</span></a>
     </div>
     <nav class="mobile-panel" data-mobile-panel aria-label="Mobile navigation">
-      <a href="shop.html#order">Buy Now</a>
+      <a href="shop.html">Buy Now</a>
       <a href="shop.html#collection">Shop All</a>
       <a href="learn.html">Learn More</a>
       <a href="index.html">Home</a>
@@ -122,10 +122,13 @@
     <section class="newsletter">
       <h2>Get launch updates first.</h2>
       <p class="text" style="margin-inline:auto;">Join the Andika list for collection drops, founder notes, and early order windows.</p>
-      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <form action="https://formspree.io/f/xzdlpddv" method="POST" data-formspree-form>
+        <input type="hidden" name="_subject" value="New Andika Journals newsletter signup">
+        <input type="hidden" name="submission_type" value="Newsletter signup">
         <input type="email" name="email" placeholder="your@email.com" aria-label="Email address" required>
         <button class="button" type="submit">Subscribe</button>
       </form>
+      <p class="form-feedback" data-form-feedback role="status" aria-live="polite"></p>
     </section>
   </main>
 
@@ -134,8 +137,8 @@
       <div class="footer-grid">
         <div><h2>Andika Journals</h2><p>Minimal journals for every story, season, thought, and plan.</p></div>
         <div><h3>Shop</h3><a href="wise-man-journal.html">The Wise Man Journal</a><a href="shop.html#collection">Women's Journals</a><a href="shop.html#collection">Kids Journals</a><a href="shop.html#collection">Notebooks</a></div>
-        <div><h3>Learn</h3><a href="learn.html">Why Journal</a><a href="index.html">Our Story</a><a href="shop.html#order">How To Order</a></div>
-        <div><h3>Help</h3><a href="shop.html#order">Payment</a><a href="https://wa.me/254720633009?text=Hi%20I%20have%20a%20question%20about%20my%20order">WhatsApp</a><a href="mailto:hello@andikajournals.com">Email</a></div>
+        <div><h3>Learn</h3><a href="learn.html">Why Journal</a><a href="index.html">Our Story</a><a href="cart.html">How To Order</a></div>
+        <div><h3>Help</h3><a href="cart.html">Payment</a><a href="https://wa.me/254720633009?text=Hi%20I%20have%20a%20question%20about%20my%20order">WhatsApp</a><a href="mailto:hello@andikajournals.com">Email</a></div>
         <div><h3>Follow Us</h3><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">Facebook</a></div>
       </div>
       <div class="footer-bottom">&copy; <span id="year"></span> Andika Journals. All rights reserved.</div>

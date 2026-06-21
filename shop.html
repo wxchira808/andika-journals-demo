@@ -4,25 +4,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Shop Andika Journals</title>
-  <meta name="description" content="Shop Andika Journals product lines and place a manual payment order.">
+  <meta name="description" content="Shop the Andika Journals collection and add journals to your cart.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a class="announcement" href="#order">Manual payment available - order now</a>
+  <a class="announcement" href="#collection">Manual payment available - shop now</a>
 
   <header class="site-header">
     <div class="header-inner">
       <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-menu-toggle><span></span></button>
       <a class="brand" href="index.html">Andika Journals</a>
       <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#order">Buy Now</a>
+        <a href="#collection">Buy Now</a>
         <a href="#collection">Shop All</a>
         <a href="learn.html">Learn More</a>
       </nav>
-      <a class="header-action" href="#order"><span>Cart</span><span class="bag">0</span></a>
+      <a class="header-action" href="cart.html"><span>Cart</span><span class="bag" data-cart-count>0</span></a>
     </div>
     <nav class="mobile-panel" data-mobile-panel aria-label="Mobile navigation">
-      <a href="#order">Buy Now</a>
+      <a href="#collection">Buy Now</a>
       <a href="#collection">Shop All</a>
       <a href="learn.html">Learn More</a>
       <a href="index.html">Home</a>
@@ -34,7 +34,7 @@
       <div class="page-width">
         <p class="eyebrow">Shop all</p>
         <h1 style="max-width:12ch;margin-inline:auto;">Save on launch orders.</h1>
-        <p class="text">Browse the full Andika Journals range below. Choose your journal, submit your details, then complete payment manually by M-Pesa or bank transfer.</p>
+        <p class="text">Browse the full Andika Journals range below. Add your journals to the cart, review quantities, then choose M-Pesa or bank transfer at checkout.</p>
       </div>
     </section>
 
@@ -59,7 +59,7 @@
             <div class="product-image">
               <img src="https://images.unsplash.com/photo-1512316609839-ce289d3eba0a?auto=format&fit=crop&w=900&q=85" alt="Women's journal product">
             </div>
-            <div class="quick-shop"><a class="button dark" href="#order" data-order-link="Women's Journals">Shop Now</a></div>
+            <div class="quick-shop"><button class="button dark" type="button" data-add-to-cart data-product-id="womens-journal" data-product-name="Women's Journal" data-product-price="1500" data-product-image="https://images.unsplash.com/photo-1512316609839-ce289d3eba0a?auto=format&amp;fit=crop&amp;w=900&amp;q=85">Add to Cart</button></div>
             <div class="product-info">
               <h3>Women's Journals</h3>
               <p class="product-tag">Get launch pricing</p>
@@ -72,7 +72,7 @@
             <div class="product-image">
               <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=85" alt="Kids journal product">
             </div>
-            <div class="quick-shop"><a class="button dark" href="#order" data-order-link="Kids Journals">Shop Now</a></div>
+            <div class="quick-shop"><button class="button dark" type="button" data-add-to-cart data-product-id="kids-journal" data-product-name="Kids Journal" data-product-price="1200" data-product-image="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&amp;fit=crop&amp;w=900&amp;q=85">Add to Cart</button></div>
             <div class="product-info">
               <h3>Kids Journals</h3>
               <p class="product-tag">Get launch pricing</p>
@@ -85,7 +85,7 @@
             <div class="product-image">
               <img src="https://images.unsplash.com/photo-1517971129774-8a2b38fa128e?auto=format&fit=crop&w=900&q=85" alt="Notebook product">
             </div>
-            <div class="quick-shop"><a class="button dark" href="#order" data-order-link="Notebooks">Shop Now</a></div>
+            <div class="quick-shop"><button class="button dark" type="button" data-add-to-cart data-product-id="notebook" data-product-name="Andika Notebook" data-product-price="900" data-product-image="https://images.unsplash.com/photo-1517971129774-8a2b38fa128e?auto=format&amp;fit=crop&amp;w=900&amp;q=85">Add to Cart</button></div>
             <div class="product-info">
               <h3>Notebooks</h3>
               <p class="product-tag">Get launch pricing</p>
@@ -103,74 +103,20 @@
       <div class="split-content">
         <p class="eyebrow">Launch offer</p>
         <h2>Simple ordering. Personal confirmation.</h2>
-        <p class="text">This demo uses a manual order workflow: the customer submits the form, sees payment instructions immediately, then receives delivery details after payment confirmation.</p>
+        <p class="text">Add products to your cart, enter delivery details once, then choose a manual payment method. Payment instructions appear after the order is placed.</p>
         <div class="actions">
-          <a class="button" href="#order">Order Now</a>
+          <a class="button" href="cart.html">View Cart</a>
         </div>
       </div>
     </section>
 
-    <section class="section" id="order">
-      <div class="page-width order-layout">
-        <div class="order-card">
-          <p class="eyebrow">Manual payment</p>
-          <h2>Place your order.</h2>
-          <p class="text">Thank you for your order. Payment instructions will appear after the form is submitted. Once payment is confirmed, we'll contact you shortly with delivery details.</p>
-        </div>
-
-        <div>
-          <form id="orderForm" class="order-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-            <input type="hidden" name="_subject" value="New Andika Journals order">
-            <div class="field-grid">
-              <label>
-                Name
-                <input type="text" name="name" autocomplete="name" required>
-              </label>
-              <label>
-                Email
-                <input type="email" name="email" autocomplete="email" required>
-              </label>
-              <label>
-                Phone
-                <input type="tel" name="phone" autocomplete="tel" required>
-              </label>
-              <label>
-                Journal type
-                <select name="journal_type" required>
-                  <option value="">Select a journal</option>
-                  <option value="Men's Journals">The Wise Man Journal</option>
-                  <option>Women's Journals</option>
-                  <option>Kids Journals</option>
-                  <option>Notebooks</option>
-                </select>
-              </label>
-              <label>
-                Quantity
-                <input type="number" name="quantity" min="1" max="50" value="1" required>
-              </label>
-              <label>
-                Preferred contact
-                <select name="preferred_contact" required>
-                  <option>WhatsApp</option>
-                  <option>Phone call</option>
-                  <option>Email</option>
-                </select>
-              </label>
-            </div>
-            <button class="button" type="submit">Submit Order</button>
-            <p class="status" id="formStatus" role="status" aria-live="polite"></p>
-          </form>
-
-          <div class="payment-panel" id="paymentPanel" aria-live="polite">
-            <h3>Payment instructions</h3>
-            <p>Thank you for your order. Payment instructions are below. Once we confirm payment, we'll contact you shortly with delivery details.</p>
-            <ul>
-              <li>M-Pesa Paybill: <strong>123456</strong></li>
-              <li>Account name: <strong>ANDIKA JOURNALS</strong></li>
-              <li>Bank: <strong>Andika Journals Ltd, Account 0000000000</strong></li>
-              <li>Send payment confirmation to: <strong>+254 XXX XXX XXX</strong></li>
-            </ul>
-          </div>
+    <section class="rich-text" id="order">
+      <div class="page-width">
+        <p class="eyebrow">Ready to order?</p>
+        <h2>Review everything in your cart.</h2>
+        <p class="text">Adjust quantities, add delivery details, and choose M-Pesa or bank transfer at checkout.</p>
+        <div class="actions" style="justify-content:center;">
+          <a class="button" href="cart.html">Go to Cart</a>
         </div>
       </div>
     </section>
@@ -179,7 +125,7 @@
       <h2>Any questions?</h2>
       <p class="text" style="margin-inline:auto;">Talk to Andika Journals before ordering or after submitting your order.</p>
       <div class="actions" style="justify-content:center;">
-        <a class="button" href="https://wa.me/254XXXXXXXXX?text=Hi%20I%20have%20a%20question%20about%20my%20order" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        <a class="button" href="https://wa.me/254720633009?text=Hi%20I%20have%20a%20question%20about%20my%20order" target="_blank" rel="noopener">Chat on WhatsApp</a>
       </div>
     </section>
   </main>
@@ -189,8 +135,8 @@
       <div class="footer-grid">
         <div><h2>Andika Journals</h2><p>Minimal journals for every story, season, thought, and plan.</p></div>
         <div><h3>Shop</h3><a href="wise-man-journal.html">The Wise Man Journal</a><a href="#collection">Women's Journals</a><a href="#collection">Kids Journals</a><a href="#collection">Notebooks</a></div>
-        <div><h3>Learn</h3><a href="learn.html">Why Journal</a><a href="index.html">Our Story</a><a href="#order">How To Order</a></div>
-        <div><h3>Help</h3><a href="#order">Payment</a><a href="https://wa.me/254XXXXXXXXX?text=Hi%20I%20have%20a%20question%20about%20my%20order">WhatsApp</a><a href="mailto:hello@andikajournals.com">Email</a></div>
+        <div><h3>Learn</h3><a href="learn.html">Why Journal</a><a href="index.html">Our Story</a><a href="cart.html">How To Order</a></div>
+        <div><h3>Help</h3><a href="cart.html">Payment</a><a href="https://wa.me/254720633009?text=Hi%20I%20have%20a%20question%20about%20my%20order">WhatsApp</a><a href="mailto:hello@andikajournals.com">Email</a></div>
         <div><h3>Follow Us</h3><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">Facebook</a></div>
       </div>
       <div class="footer-bottom">&copy; <span id="year"></span> Andika Journals. All rights reserved.</div>

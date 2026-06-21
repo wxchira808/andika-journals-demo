@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Cart | Andika Journals</title>
+  <meta name="description" content="Review your Andika Journals order and choose M-Pesa, bank transfer, or secure online payment.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="announcement" href="shop.html">Continue shopping the Andika Journals collection</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-menu-toggle><span></span></button>
+      <a class="brand" href="index.html">Andika Journals</a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="shop.html">Shop All</a>
+        <a href="wise-man-journal.html">Wise Man Journal</a>
+        <a href="learn.html">Learn More</a>
+      </nav>
+      <a class="header-action" href="cart.html" aria-current="page"><span>Cart</span><span class="bag" data-cart-count>0</span></a>
+    </div>
+    <nav class="mobile-panel" data-mobile-panel aria-label="Mobile navigation">
+      <a href="shop.html">Shop All</a>
+      <a href="wise-man-journal.html">Wise Man Journal</a>
+      <a href="learn.html">Learn More</a>
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
+
+  <main class="cart-page">
+    <div class="cart-heading">
+      <p class="eyebrow">Your selection</p>
+      <h1>Your Cart</h1>
+      <p>Review quantities before completing your order.</p>
+    </div>
+
+    <div class="cart-empty" data-cart-empty hidden>
+      <h2>Your cart is empty.</h2>
+      <p>Choose a journal and it will appear here.</p>
+      <a class="button" href="shop.html">Shop Journals</a>
+    </div>
+
+    <div class="cart-layout">
+      <section class="cart-products" aria-label="Cart items">
+        <div class="cart-items" data-cart-items></div>
+
+        <div class="cart-summary" data-cart-summary hidden>
+          <div><span>Subtotal</span><strong data-cart-subtotal>KES 0</strong></div>
+          <p>Delivery cost will be confirmed based on your location.</p>
+          <a href="shop.html">Continue shopping</a>
+        </div>
+      </section>
+
+      <section class="checkout-section" data-checkout-section hidden>
+        <div class="checkout-head">
+          <p class="eyebrow">Checkout</p>
+          <h2>Delivery and payment</h2>
+        </div>
+
+        <form id="checkoutForm" class="checkout-form" action="https://formspree.io/f/xzdlpddv" method="POST">
+          <input type="hidden" name="_subject" value="New Andika Journals order">
+          <input type="hidden" name="submission_type" value="Customer order">
+
+          <fieldset>
+            <legend>Contact details</legend>
+            <div class="field-grid">
+              <label>
+                Full name
+                <input type="text" name="name" autocomplete="name" required>
+              </label>
+              <label>
+                Phone number
+                <input type="tel" name="phone" autocomplete="tel" placeholder="07XX XXX XXX" required>
+              </label>
+              <label>
+                Email address
+                <input type="email" name="email" autocomplete="email" required>
+              </label>
+              <label>
+                Delivery location
+                <input type="text" name="delivery_location" placeholder="Area, town or county" required>
+              </label>
+            </div>
+            <label>
+              Delivery notes <span class="optional">Optional</span>
+              <textarea name="delivery_notes" rows="3" placeholder="Landmark, preferred delivery time, or other details"></textarea>
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Payment method</legend>
+            <div class="payment-options">
+              <label class="payment-option">
+                <input type="radio" name="payment_method" value="mpesa" required>
+                <span class="payment-option-copy"><strong>M-Pesa</strong><small>Pay manually after placing your order.</small></span>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="payment_method" value="bank" required>
+                <span class="payment-option-copy"><strong>Bank transfer</strong><small>Transfer manually using your order reference.</small></span>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="payment_method" value="paystack" required>
+                <span class="payment-option-copy"><strong>Pay securely online <em>Test mode</em></strong><small>Continue to Paystack to complete your payment.</small></span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="checkout-total">
+            <span>Order subtotal</span>
+            <strong data-cart-subtotal>KES 0</strong>
+          </div>
+
+          <button class="button" type="submit" data-checkout-submit>Place Order</button>
+          <p class="status" id="checkoutStatus" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="payment-confirmation" id="paymentConfirmation" hidden>
+          <p class="eyebrow">Order received</p>
+          <h2>Thank you for your order.</h2>
+          <p>Complete the manual payment using the instructions below. Once payment is confirmed, we’ll contact you with delivery details.</p>
+          <div id="paymentInstructions"></div>
+          <a class="button dark" href="https://wa.me/254720633009?text=Hi%20I%20have%20placed%20an%20Andika%20Journals%20order" target="_blank" rel="noopener">Send Payment Confirmation</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="page-width">
+      <div class="footer-grid">
+        <div><h2>Andika Journals</h2><p>Minimal journals for every story, season, thought, and plan.</p></div>
+        <div><h3>Shop</h3><a href="wise-man-journal.html">The Wise Man Journal</a><a href="shop.html#collection">Women's Journals</a><a href="shop.html#collection">Kids Journals</a><a href="shop.html#collection">Notebooks</a></div>
+        <div><h3>Learn</h3><a href="learn.html">Why Journal</a><a href="index.html">Our Story</a><a href="cart.html">How To Order</a></div>
+        <div><h3>Help</h3><a href="cart.html">Payment</a><a href="https://wa.me/254720633009?text=Hi%20I%20have%20a%20question%20about%20my%20order">WhatsApp</a><a href="mailto:hello@andikajournals.com">Email</a></div>
+        <div><h3>Follow Us</h3><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">Facebook</a></div>
+      </div>
+      <div class="footer-bottom">&copy; <span id="year"></span> Andika Journals. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

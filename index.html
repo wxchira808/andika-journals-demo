@@ -19,13 +19,13 @@
         <a href="shop.html#collection">Shop All</a>
         <a href="learn.html">Learn More</a>
       </nav>
-      <a class="header-action" href="shop.html#order"><span>Cart</span><span class="bag">0</span></a>
+      <a class="header-action" href="cart.html"><span>Cart</span><span class="bag" data-cart-count>0</span></a>
     </div>
     <nav class="mobile-panel" data-mobile-panel aria-label="Mobile navigation">
       <a href="shop.html">Buy Now</a>
       <a href="shop.html#collection">Shop All</a>
       <a href="learn.html">Learn More</a>
-      <a href="shop.html#order">Order</a>
+      <a href="cart.html">Cart</a>
     </nav>
   </header>
 
@@ -98,7 +98,7 @@
             <div class="product-image">
               <img src="https://images.unsplash.com/photo-1512316609839-ce289d3eba0a?auto=format&fit=crop&w=900&q=85" alt="Women's journal with flowers and pen">
             </div>
-            <div class="quick-shop"><a class="button dark" href="shop.html#order" data-order-link="Women's Journals">Shop Now</a></div>
+            <div class="quick-shop"><button class="button dark" type="button" data-add-to-cart data-product-id="womens-journal" data-product-name="Women's Journal" data-product-price="1500" data-product-image="https://images.unsplash.com/photo-1512316609839-ce289d3eba0a?auto=format&amp;fit=crop&amp;w=900&amp;q=85">Add to Cart</button></div>
             <div class="product-info">
               <h3>Women's Journals</h3>
               <p class="product-tag">Prayer, gratitude, dreams</p>
@@ -111,7 +111,7 @@
             <div class="product-image">
               <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=85" alt="Children writing in notebooks">
             </div>
-            <div class="quick-shop"><a class="button dark" href="shop.html#order" data-order-link="Kids Journals">Shop Now</a></div>
+            <div class="quick-shop"><button class="button dark" type="button" data-add-to-cart data-product-id="kids-journal" data-product-name="Kids Journal" data-product-price="1200" data-product-image="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&amp;fit=crop&amp;w=900&amp;q=85">Add to Cart</button></div>
             <div class="product-info">
               <h3>Kids Journals</h3>
               <p class="product-tag">Draw, write, imagine</p>
@@ -124,7 +124,7 @@
             <div class="product-image">
               <img src="https://images.unsplash.com/photo-1517971129774-8a2b38fa128e?auto=format&fit=crop&w=900&q=85" alt="Minimal notebook and pen">
             </div>
-            <div class="quick-shop"><a class="button dark" href="shop.html#order" data-order-link="Notebooks">Shop Now</a></div>
+            <div class="quick-shop"><button class="button dark" type="button" data-add-to-cart data-product-id="notebook" data-product-name="Andika Notebook" data-product-price="900" data-product-image="https://images.unsplash.com/photo-1517971129774-8a2b38fa128e?auto=format&amp;fit=crop&amp;w=900&amp;q=85">Add to Cart</button></div>
             <div class="product-info">
               <h3>Notebooks</h3>
               <p class="product-tag">Work, class, sketches, lists</p>
@@ -197,10 +197,13 @@
     <section class="newsletter">
       <h2>Get launch updates first.</h2>
       <p class="text" style="margin-inline:auto;">Join the Andika list for collection drops, founder notes, and early order windows.</p>
-      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <form action="https://formspree.io/f/xzdlpddv" method="POST" data-formspree-form>
+        <input type="hidden" name="_subject" value="New Andika Journals newsletter signup">
+        <input type="hidden" name="submission_type" value="Newsletter signup">
         <input type="email" name="email" placeholder="your@email.com" aria-label="Email address" required>
         <button class="button" type="submit">Subscribe</button>
       </form>
+      <p class="form-feedback" data-form-feedback role="status" aria-live="polite"></p>
     </section>
   </main>
 
@@ -222,12 +225,12 @@
           <h3>Learn</h3>
           <a href="learn.html">Why Journal</a>
           <a href="index.html">Our Story</a>
-          <a href="shop.html#order">How To Order</a>
+          <a href="cart.html">How To Order</a>
         </div>
         <div>
           <h3>Help</h3>
-          <a href="shop.html#order">Payment</a>
-          <a href="https://wa.me/254XXXXXXXXX?text=Hi%20I%20have%20a%20question%20about%20my%20order">WhatsApp</a>
+          <a href="cart.html">Payment</a>
+          <a href="https://wa.me/254720633009?text=Hi%20I%20have%20a%20question%20about%20my%20order">WhatsApp</a>
           <a href="mailto:hello@andikajournals.com">Email</a>
         </div>
         <div>

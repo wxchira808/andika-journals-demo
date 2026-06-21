@@ -8,21 +8,21 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a class="announcement" href="shop.html#order">Launch orders open now - order The Wise Man Journal</a>
+  <a class="announcement" href="#product">Launch orders open now - order The Wise Man Journal</a>
 
   <header class="site-header">
     <div class="header-inner">
       <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-menu-toggle><span></span></button>
       <a class="brand" href="index.html">Andika Journals</a>
       <nav class="nav-links" aria-label="Primary navigation">
-        <a href="shop.html#order">Buy Now</a>
+        <a href="#product">Buy Now</a>
         <a href="shop.html#collection">Shop All</a>
         <a href="learn.html">Learn More</a>
       </nav>
-      <a class="header-action" href="shop.html#order"><span>Cart</span><span class="bag">0</span></a>
+      <a class="header-action" href="cart.html"><span>Cart</span><span class="bag" data-cart-count>0</span></a>
     </div>
     <nav class="mobile-panel" data-mobile-panel aria-label="Mobile navigation">
-      <a href="shop.html#order">Buy Now</a>
+      <a href="#product">Buy Now</a>
       <a href="shop.html#collection">Shop All</a>
       <a href="learn.html">Learn More</a>
       <a href="index.html">Home</a>
@@ -30,7 +30,7 @@
   </header>
 
   <main>
-    <section class="product-detail">
+    <section class="product-detail" id="product">
       <div class="product-gallery">
         <div class="product-main-image">
           <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1500&q=88" alt="The Wise Man Journal on a quiet writing desk">
@@ -54,7 +54,7 @@
           <li>Designed for a calm, consistent writing practice</li>
         </ul>
         <div class="actions">
-          <a class="button" href="shop.html#order" data-order-link="Men's Journals">Order Now</a>
+          <button class="button" type="button" data-add-to-cart data-product-id="wise-man-journal" data-product-name="The Wise Man Journal" data-product-price="1500" data-product-image="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&amp;fit=crop&amp;w=1500&amp;q=88">Add to Cart</button>
         </div>
         <p class="order-assurance"> M-Pesa or bank payment. Delivery details are confirmed personally after payment.</p>
       </div>
@@ -98,7 +98,7 @@
         <h2>You do not have to carry it all without reflection.</h2>
         <p class="text">Start with one honest page, one prayer, and one moment of stillness.</p>
         <div class="actions" style="justify-content:center;">
-          <a class="button" href="shop.html#order" data-order-link="Men's Journals">Order The Journal</a>
+          <button class="button" type="button" data-add-to-cart data-product-id="wise-man-journal" data-product-name="The Wise Man Journal" data-product-price="1500" data-product-image="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&amp;fit=crop&amp;w=1500&amp;q=88">Add to Cart</button>
         </div>
       </div>
     </section>
@@ -109,8 +109,8 @@
       <div class="footer-grid">
         <div><h2>Andika Journals</h2><p>Minimal journals for every story, season, thought, and plan.</p></div>
         <div><h3>Shop</h3><a href="wise-man-journal.html">The Wise Man Journal</a><a href="shop.html#collection">Women's Journals</a><a href="shop.html#collection">Kids Journals</a><a href="shop.html#collection">Notebooks</a></div>
-        <div><h3>Learn</h3><a href="learn.html">Why Journal</a><a href="index.html">Our Story</a><a href="shop.html#order">How To Order</a></div>
-        <div><h3>Help</h3><a href="shop.html#order">Payment</a><a href="https://wa.me/254720633009?text=Hi%20I%20have%20a%20question%20about%20my%20order">WhatsApp</a><a href="mailto:hello@andikajournals.com">Email</a></div>
+        <div><h3>Learn</h3><a href="learn.html">Why Journal</a><a href="index.html">Our Story</a><a href="cart.html">How To Order</a></div>
+        <div><h3>Help</h3><a href="cart.html">Payment</a><a href="https://wa.me/254720633009?text=Hi%20I%20have%20a%20question%20about%20my%20order">WhatsApp</a><a href="mailto:hello@andikajournals.com">Email</a></div>
         <div><h3>Follow Us</h3><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">Facebook</a></div>
       </div>
       <div class="footer-bottom">&copy; <span id="year"></span> Andika Journals. All rights reserved.</div>
