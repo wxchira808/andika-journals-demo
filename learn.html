@@ -122,9 +122,7 @@
     <section class="newsletter">
       <h2>Get launch updates first.</h2>
       <p class="text" style="margin-inline:auto;">Join the Andika list for collection drops, founder notes, and early order windows.</p>
-      <form action="https://formspree.io/f/xzdlpddv" method="POST" data-formspree-form>
-        <input type="hidden" name="_subject" value="New Andika Journals newsletter signup">
-        <input type="hidden" name="submission_type" value="Newsletter signup">
+      <form action="/api/subscribe" method="POST" data-newsletter-form>
         <input type="email" name="email" placeholder="your@email.com" aria-label="Email address" required>
         <button class="button" type="submit">Subscribe</button>
       </form>

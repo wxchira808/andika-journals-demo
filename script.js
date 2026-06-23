@@ -280,7 +280,7 @@ async function verifyReturnedPaystackPayment() {
     `;
     paymentConfirmation.querySelector(".eyebrow").textContent = "Payment successful";
     paymentConfirmation.querySelector("h2").textContent = "Thank you for your order.";
-    paymentConfirmation.querySelector("h2 + p").textContent = "We’ll contact you shortly to confirm your delivery details.";
+    paymentConfirmation.querySelector("h2 + p").textContent = "A receipt has been sent to your email. We'll contact you shortly to confirm your delivery details.";
     paymentConfirmation.hidden = false;
     checkoutForm.hidden = true;
     checkoutStatus.textContent = "Your payment has been confirmed and your order is being prepared.";
@@ -342,7 +342,7 @@ if (checkoutForm) {
   });
 }
 
-document.querySelectorAll("[data-formspree-form]").forEach((form) => {
+document.querySelectorAll("[data-newsletter-form]").forEach((form) => {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -358,20 +358,19 @@ document.querySelectorAll("[data-formspree-form]").forEach((form) => {
     feedback.className = "form-feedback";
 
     try {
-      const response = await fetch(form.action, {
+      const response = await fetch("/api/subscribe", {
         method: "POST",
-        body: new FormData(form),
-        headers: { Accept: "application/json" }
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: new FormData(form).get("email") })
       });
       const data = await response.json().catch(() => ({}));
 
       if (!response.ok) {
-        const message = data.errors?.map((error) => error.message).join(" ") || "Something went wrong. Please try again.";
-        throw new Error(message);
+        throw new Error(data.error || "Something went wrong. Please try again.");
       }
 
       form.reset();
-      feedback.textContent = "You’re on the list. Thank you!";
+      feedback.textContent = "You're on the list. Thank you!";
       feedback.classList.add("success");
     } catch (error) {
       feedback.textContent = error.message || "Something went wrong. Please try again.";

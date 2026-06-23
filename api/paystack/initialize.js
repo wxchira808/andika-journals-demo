@@ -5,6 +5,14 @@ const PRODUCTS = {
   notebook: { name: "Andika Notebook", price: 900 }
 };
 
+/**
+ * Split code for Paystack split payments.
+ * 98% of every transaction goes to the client's subaccount (her personal bank account).
+ * 2% stays in the main Paystack account as a platform fee.
+ *
+ * TEST_SPLIT_CODE is the fallback for local/dev testing.
+ * Set PAYSTACK_SPLIT_CODE in Vercel environment variables for production.
+ */
 const TEST_SPLIT_CODE = "SPL_x1JAhQ9UUF";
 
 function send(response, status, body) {
@@ -12,7 +20,13 @@ function send(response, status, body) {
 }
 
 function getSecretKey() {
-  return process.env.paystack_dev_secret_key || process.env.PAYSTACK_DEV_SECRET_KEY;
+  // Prefer live key in production; fall back to dev/test key
+  return (
+    process.env.paystack_live_secret_key ||
+    process.env.PAYSTACK_LIVE_SECRET_KEY ||
+    process.env.paystack_dev_secret_key ||
+    process.env.PAYSTACK_DEV_SECRET_KEY
+  );
 }
 
 function priceCart(cart) {

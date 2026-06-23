@@ -3,7 +3,13 @@ function send(response, status, body) {
 }
 
 function getSecretKey() {
-  return process.env.paystack_dev_secret_key || process.env.PAYSTACK_DEV_SECRET_KEY;
+  // Prefer live key in production; fall back to dev/test key
+  return (
+    process.env.paystack_live_secret_key ||
+    process.env.PAYSTACK_LIVE_SECRET_KEY ||
+    process.env.paystack_dev_secret_key ||
+    process.env.PAYSTACK_DEV_SECRET_KEY
+  );
 }
 
 module.exports = async function handler(request, response) {
